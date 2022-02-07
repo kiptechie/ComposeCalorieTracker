@@ -10,7 +10,9 @@ import com.kiptechie.core.navigation.Route
 import com.kiptechie.mycalorietracker.navigation.navigate
 import com.kiptechie.mycalorietracker.ui.theme.MyCalorieTrackerTheme
 import com.kiptechie.onboarding_presentation.welcome.WelcomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
