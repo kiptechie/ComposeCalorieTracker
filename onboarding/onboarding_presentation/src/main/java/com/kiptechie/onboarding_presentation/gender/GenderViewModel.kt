@@ -31,8 +31,14 @@ class GenderViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
-        selectedGender =
-            Gender.fromString(savedStateHandle.get<String>(keySelectedGender) ?: "female")
+        viewModelScope.launch {
+            val userInfo = preferences.loadUserInfo()
+            val genderNameFromPreferences = userInfo.gender.name
+            val genderName =
+                savedStateHandle.get<String>(keySelectedGender) ?: genderNameFromPreferences
+            selectedGender =
+                Gender.fromString(genderName)
+        }
     }
 
     fun onGenderClick(gender: Gender) {
