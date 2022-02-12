@@ -6,7 +6,8 @@ import com.kiptechie.tracker_data.local.entities.TrackedFoodEntity
 
 @Database(
     entities = [TrackedFoodEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class TrackerDatabase : RoomDatabase() {
 
