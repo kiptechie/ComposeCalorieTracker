@@ -13,9 +13,12 @@ import androidx.navigation.compose.rememberNavController
 import com.kiptechie.core.navigation.Route
 import com.kiptechie.mycalorietracker.navigation.navigate
 import com.kiptechie.mycalorietracker.ui.theme.MyCalorieTrackerTheme
+import com.kiptechie.onboarding_presentation.activity.ActivityScreen
 import com.kiptechie.onboarding_presentation.age.AgeScreen
 import com.kiptechie.onboarding_presentation.gender.GenderScreen
+import com.kiptechie.onboarding_presentation.goal.GoalScreen
 import com.kiptechie.onboarding_presentation.height.HeightScreen
+import com.kiptechie.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.kiptechie.onboarding_presentation.weight.WeightScreen
 import com.kiptechie.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,10 +61,16 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.NUTRIENT_GOAL) {
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.ACTIVITY) {
+                            ActivityScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.GOAL) {
+                            GoalScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.TRACKER_OVERVIEW) {
                         }
