@@ -29,7 +29,7 @@ fun WelcomeScreen(
         Text(
             text = stringResource(id = R.string.welcome_text),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.h2,
+            style = MaterialTheme.typography.h3,
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(dimens.medium))
