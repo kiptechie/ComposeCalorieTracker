@@ -65,9 +65,9 @@ class DefaultPreferences(
     }
 
     override fun loadUserInfo(): UserInfo {
-        val age = sharedPref.getInt(Preferences.KEY_AGE, -1)
-        val height = sharedPref.getInt(Preferences.KEY_HEIGHT, -1)
-        val weight = sharedPref.getFloat(Preferences.KEY_WEIGHT, -1F)
+        val age = sharedPref.getInt(Preferences.KEY_AGE, 18)
+        val height = sharedPref.getInt(Preferences.KEY_HEIGHT, 170)
+        val weight = sharedPref.getFloat(Preferences.KEY_WEIGHT, 75F)
         val genderString = sharedPref.getString(Preferences.KEY_GENDER, null)
         val activityLevelString = sharedPref.getString(Preferences.KEY_ACTIVITY_LEVEL, null)
         val goalTypeString = sharedPref.getString(Preferences.KEY_GOAL_TYPE, null)
