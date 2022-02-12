@@ -1,5 +1,8 @@
 package com.kiptechie.tracker_data.di
 
+import android.app.Application
+import androidx.room.Room
+import com.kiptechie.tracker_data.local.TrackerDatabase
 import com.kiptechie.tracker_data.remote.OpenFoodApi
 import dagger.Module
 import dagger.Provides
@@ -37,5 +40,19 @@ object TrackerDatamodule {
             .client(client)
             .build()
             .create(OpenFoodApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrackerDatabase(
+        app: Application
+    ): TrackerDatabase {
+        return Room.databaseBuilder(
+            app,
+            TrackerDatabase::class.java,
+            TrackerDatabase.NAME
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 }
