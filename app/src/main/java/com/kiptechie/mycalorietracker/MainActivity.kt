@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.kiptechie.core.domain.preferences.Preferences
 import com.kiptechie.core.navigation.Route
 import com.kiptechie.mycalorietracker.navigation.navigate
 import com.kiptechie.mycalorietracker.ui.theme.MyCalorieTrackerTheme
@@ -23,11 +24,18 @@ import com.kiptechie.onboarding_presentation.weight.WeightScreen
 import com.kiptechie.onboarding_presentation.welcome.WelcomeScreen
 import com.kiptechie.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var preferences: Preferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val startDest =
+            if (preferences.shouldShowOnboarding()) Route.WELCOME else Route.TRACKER_OVERVIEW
         setContent {
             MyCalorieTrackerTheme {
                 val navController = rememberNavController()
@@ -36,7 +44,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     scaffoldState = scaffoldState
                 ) {
-                    NavHost(navController = navController, startDestination = Route.WELCOME) {
+                    NavHost(navController = navController, startDestination = startDest) {
                         composable(Route.WELCOME) {
                             WelcomeScreen(onNavigate = navController::navigate)
                         }
