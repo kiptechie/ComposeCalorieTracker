@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kiptechie.core.domain.models.getPercent
 import com.kiptechie.core.domain.preferences.Preferences
 import com.kiptechie.core.domain.use_cases.FilterOutDigits
 import com.kiptechie.core.navigation.Route
@@ -34,16 +35,16 @@ class NutrientGoalViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             val userInfo = preferences.loadUserInfo()
-            val carbsP = userInfo.carbRatio.toString()
-            val proteinsP = userInfo.proteinRatio.toString()
-            val fatsP = userInfo.fatRatio.toString()
+            val carbsP = userInfo.carbRatio.getPercent().toString()
+            val proteinsP = userInfo.proteinRatio.getPercent().toString()
+            val fatsP = userInfo.fatRatio.getPercent().toString()
             val carbs = savedStateHandle.get<String>(KEY_CARBS) ?: carbsP
             val proteins = savedStateHandle.get<String>(KEY_PROTEIN) ?: proteinsP
             val fats = savedStateHandle.get<String>(KEY_FAT) ?: fatsP
             state = NutrientGoalState(
-                carbsRatio = carbs.substring(0, 2),
-                proteinRatio = proteins.substring(0, 2),
-                fatRatio = fats.substring(0, 2)
+                carbsRatio = carbs,
+                proteinRatio = proteins,
+                fatRatio = fats
             )
         }
     }
@@ -76,10 +77,10 @@ class NutrientGoalViewModel @Inject constructor(
                 )
                 when (result) {
                     is ValidateNutrients.Result.Success -> {
-                        preferences.saveCarbRatio(result.carbsRatio)
-                        preferences.saveProteinRatio(result.proteinRatio)
-                        preferences.saveFatRatio(result.fatRatio)
                         viewModelScope.launch {
+                            preferences.saveCarbRatio(result.carbsRatio)
+                            preferences.saveProteinRatio(result.proteinRatio)
+                            preferences.saveFatRatio(result.fatRatio)
                             _uiEvent.send(UiEvent.Navigate(Route.TRACKER_OVERVIEW))
                         }
                     }
