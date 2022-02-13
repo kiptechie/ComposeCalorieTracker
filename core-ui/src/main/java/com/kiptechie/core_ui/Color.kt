@@ -1,4 +1,4 @@
-package com.kiptechie.mycalorietracker.ui.theme
+package com.kiptechie.core_ui
 
 import androidx.compose.ui.graphics.Color
 
