@@ -56,7 +56,7 @@ fun ExpandableMeal(
                 ) {
                     Text(
                         text = meal.name.asString(context),
-                        style = MaterialTheme.typography.h6
+                        style = MaterialTheme.typography.h5
                     )
                     Icon(
                         imageVector = if (meal.isExpanded) {
