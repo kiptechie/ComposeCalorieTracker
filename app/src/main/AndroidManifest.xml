@@ -3,16 +3,19 @@
     package="com.kiptechie.mycalorietracker">
 
     <application
+        android:name=".MyCalorieTrackerApp"
         android:allowBackup="true"
+        android:fullBackupOnly="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCalorieTracker">
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.MyCalorieTracker">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
