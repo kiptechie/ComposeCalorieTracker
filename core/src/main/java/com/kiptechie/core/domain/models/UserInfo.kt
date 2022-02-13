@@ -11,3 +11,7 @@ data class UserInfo(
     val proteinRatio: Float,
     val fatRatio: Float
 )
+
+fun Float.getPercent(): Int {
+    return (this * 100f).toInt()
+}
