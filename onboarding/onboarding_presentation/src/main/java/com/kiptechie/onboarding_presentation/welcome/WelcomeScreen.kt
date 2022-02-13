@@ -9,14 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.kiptechie.core.R
-import com.kiptechie.core.navigation.Route
-import com.kiptechie.core.util.UiEvent
 import com.kiptechie.core_ui.LocalSpacing
 import com.kiptechie.onboarding_presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit
+    onNextClick: () -> Unit
 ) {
     val dimens = LocalSpacing.current
     Column(
@@ -36,7 +34,7 @@ fun WelcomeScreen(
         ActionButton(
             text = stringResource(id = R.string.next),
             onClick = {
-                onNavigate(UiEvent.Navigate(Route.GENDER))
+                onNextClick()
             },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )

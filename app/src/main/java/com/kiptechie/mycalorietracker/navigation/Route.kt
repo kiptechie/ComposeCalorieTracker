@@ -1,4 +1,4 @@
-package com.kiptechie.core.navigation
+package com.kiptechie.mycalorietracker.navigation
 
 object Route {
 

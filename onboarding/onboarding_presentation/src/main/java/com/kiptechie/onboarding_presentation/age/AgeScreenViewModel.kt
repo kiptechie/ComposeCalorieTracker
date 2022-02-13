@@ -10,7 +10,6 @@ import androidx.lifecycle.viewModelScope
 import com.kiptechie.core.R
 import com.kiptechie.core.domain.preferences.Preferences
 import com.kiptechie.core.domain.use_cases.FilterOutDigits
-import com.kiptechie.core.navigation.Route
 import com.kiptechie.core.util.UiEvent
 import com.kiptechie.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -66,7 +65,7 @@ class AgeScreenViewModel @Inject constructor(
             }
             preferences.saveAge(ageNumber)
             savedStateHandle.set(keyAge, ageNumber.toString())
-            _uiEvent.send(UiEvent.Navigate(Route.HEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 

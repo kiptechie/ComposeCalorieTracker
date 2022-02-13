@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.collect
 
 @Composable
 fun GenderScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: GenderViewModel = hiltViewModel()
 ) {
     val dimens = LocalSpacing.current
@@ -31,8 +31,8 @@ fun GenderScreen(
         block = {
             viewModel.uiEvent.collect { event ->
                 when (event) {
-                    is UiEvent.Navigate -> {
-                        onNavigate(event)
+                    is UiEvent.Success -> {
+                        onNextClick()
                     }
                     else -> Unit
                 }

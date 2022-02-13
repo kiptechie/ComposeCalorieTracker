@@ -9,7 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.kiptechie.core.R
 import com.kiptechie.core.domain.preferences.Preferences
 import com.kiptechie.core.domain.use_cases.FilterOutDigits
-import com.kiptechie.core.navigation.Route
 import com.kiptechie.core.util.UiEvent
 import com.kiptechie.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -59,7 +58,7 @@ class HeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveHeight(heightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 
