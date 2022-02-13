@@ -9,7 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.kiptechie.core.domain.models.getPercent
 import com.kiptechie.core.domain.preferences.Preferences
 import com.kiptechie.core.domain.use_cases.FilterOutDigits
-import com.kiptechie.core.navigation.Route
 import com.kiptechie.core.util.UiEvent
 import com.kiptechie.onboarding_domain.use_cases.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -81,7 +80,7 @@ class NutrientGoalViewModel @Inject constructor(
                             preferences.saveCarbRatio(result.carbsRatio)
                             preferences.saveProteinRatio(result.proteinRatio)
                             preferences.saveFatRatio(result.fatRatio)
-                            _uiEvent.send(UiEvent.Navigate(Route.TRACKER_OVERVIEW))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
                     is ValidateNutrients.Result.Error -> {
