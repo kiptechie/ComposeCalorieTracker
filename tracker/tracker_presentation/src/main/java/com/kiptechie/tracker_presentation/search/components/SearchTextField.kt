@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -35,7 +36,7 @@ fun SearchTextField(
     onValueChange: (String) -> Unit,
     onSearch: () -> Unit,
     modifier: Modifier = Modifier,
-    hint: String = stringResource(id = R.string.search),
+    hint: String = stringResource(id = R.string.search_hint),
     shouldShowHint: Boolean = false,
     onFocusChanged: (FocusState) -> Unit
 ) {
@@ -66,6 +67,7 @@ fun SearchTextField(
                 .padding(dimens.medium)
                 .padding(end = dimens.medium)
                 .onFocusChanged { onFocusChanged(it) }
+                .testTag("search_text_field")
         )
         if (shouldShowHint) {
             Text(
