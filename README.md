@@ -17,7 +17,7 @@ git clone git@github.com:kiptechie/MyCalorieTracker.git
 ```
 
 ## Maintainers
-This project is mantained by:
+This project is maintained by:
 * [Kiptechie](https://github.com/kiptechie)
 
 ## Contributing
