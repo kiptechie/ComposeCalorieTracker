@@ -8,7 +8,7 @@ A simple jetpack compose multi-module android app that can track your calorie co
 * Save data in a sqlite local database to keep history of calories consumed
 
 ## Video of working app
-
+https://user-images.githubusercontent.com/40039858/165593048-7f09af37-0a53-4694-8448-f612bf219d19.mp4
 
 ## Installation
 Clone this repository and import into **Android Studio**
