@@ -1,5 +1,5 @@
 # My Calorie Tracker
-A simple jetpack compose multi-module android app that can track your calorie consumption and provides a nice visualization of data using canvas.
+A simple jetpack compose multi-module android app that can track your calorie consumption and provides a nice visualization of data using canvas. It contains unit tests and end to end tests.
 
 ## Features
 * Onboarding to collect relevant user data such as age, weight etc
