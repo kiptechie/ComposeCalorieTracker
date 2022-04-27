@@ -34,9 +34,9 @@ class NutrientGoalViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             val userInfo = preferences.loadUserInfo()
-            val carbsP = userInfo.carbRatio.getPercent().toString()
-            val proteinsP = userInfo.proteinRatio.getPercent().toString()
-            val fatsP = userInfo.fatRatio.getPercent().toString()
+            val carbsP = userInfo.carbRatio.toInt().toString()
+            val proteinsP = userInfo.proteinRatio.toInt().toString()
+            val fatsP = userInfo.fatRatio.toInt().toString()
             val carbs = savedStateHandle.get<String>(KEY_CARBS) ?: carbsP
             val proteins = savedStateHandle.get<String>(KEY_PROTEIN) ?: proteinsP
             val fats = savedStateHandle.get<String>(KEY_FAT) ?: fatsP
